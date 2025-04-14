@@ -1,7 +1,5 @@
 #!/bin/sh
-echo '#!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
 yarn build
-' > .husky/pre-commit
-chmod +x .husky/pre-commit
+
