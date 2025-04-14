@@ -1,7 +1,6 @@
-#!/bin/sh
 echo '#!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn build
-' > .husky/pre-commit
+npx --no -- commitlint --edit "$1"
+' > .husky/commit-msg
 chmod +x .husky/pre-commit
