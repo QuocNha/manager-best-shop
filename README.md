@@ -58,12 +58,12 @@ Note that the use of engine-strict didn't specifically say anything about yarn, 
 
 package.json
 
-  "engines": {
-    "node": ">=14.0.0",
-    "yarn": ">=1.22.0",
-    "npm": "please-use-yarn"
-  },
-  ...
+"engines": {
+"node": ">=14.0.0",
+"yarn": ">=1.22.0",
+"npm": "please-use-yarn"
+},
+...
 
 The engines field is where you specify the specific versions of the tools you are using. You can also fill in your personal details if you choose.
 
@@ -75,14 +75,14 @@ By default your Next.js project will already have a repo initialized. You can ch
 
 On branch main
 Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   README.md
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified: README.md
 
 Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        .npmrc
-        .nvmrc
+(use "git add <file>..." to include in what will be committed)
+.npmrc
+.nvmrc
 
 This tells us we are on the main branch and we have not staged or made any commits yet.
 
@@ -110,7 +110,7 @@ git push -u origin {YOUR_BRANCH_NAME}
 
 Note that from this point on we will be using the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) standard and specifically the Angular convention [described here](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type)
 
-The reason being like many other features in this project to simply set a *consistent* standard for all developers to use to minimize train-up time when contributing to the project. I personally have very little concern as to what standard is chosen, as long as everyone agrees to follow it that is the most important thing.
+The reason being like many other features in this project to simply set a _consistent_ standard for all developers to use to minimize train-up time when contributing to the project. I personally have very little concern as to what standard is chosen, as long as everyone agrees to follow it that is the most important thing.
 
 Consistency is everything!
 
@@ -129,54 +129,54 @@ We are just going to add a little bit of extra configuration and make it a bit s
 
 package.json
 
-  "lint": "next lint",
-  "lint:fix": "eslint --fix ."
-  ...
+"lint": "next lint",
+"lint:fix": "eslint --fix ."
+...
 
 .eslintrc.json
 
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
-  "extends": [
-    "airbnb",
-    "prettier",
-    "plugin:react/recommended",
-    "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended",
-    "next",
-    "next/core-web-vitals"
-  ],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".tsx", ".ts", ".js", ".json"]
-      },
-      "alias": [
-        ["src", "./src"],
-        ["server", "./server"]
-      ]
-    }
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "plugins": ["react", "@typescript-eslint", "react-hooks"],
-  "rules": {
-    "semi": 0,
-    "indent": 0,
-    "react/jsx-filename-extension": 0,
-    "react/prop-types": 0,
-    "react/jsx-props-no-spreading": 0,
-    "react/require-default-props": 0,
+"env": {
+"browser": true,
+"es2021": true,
+"node": true
+},
+"extends": [
+"airbnb",
+"prettier",
+"plugin:react/recommended",
+"plugin:import/typescript",
+"plugin:@typescript-eslint/recommended",
+"next",
+"next/core-web-vitals"
+],
+"settings": {
+"import/resolver": {
+"node": {
+"extensions": [".tsx", ".ts", ".js", ".json"]
+},
+"alias": [
+["src", "./src"],
+["server", "./server"]
+]
+}
+},
+"parser": "@typescript-eslint/parser",
+"parserOptions": {
+"ecmaFeatures": {
+"jsx": true
+},
+"ecmaVersion": 12,
+"sourceType": "module"
+},
+"plugins": ["react", "@typescript-eslint", "react-hooks"],
+"rules": {
+"semi": 0,
+"indent": 0,
+"react/jsx-filename-extension": 0,
+"react/prop-types": 0,
+"react/jsx-props-no-spreading": 0,
+"react/require-default-props": 0,
 
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0,
@@ -211,7 +211,8 @@ package.json
     "@typescript-eslint/no-shadow": ["error"],
     "import/no-cycle": 0,
     "prefer-arrow-callback": 0
-  }
+
+}
 }
 
 yarn add -D eslint-config-airbnb
@@ -230,8 +231,7 @@ yarn add -D eslint-import-resolver-typescript eslint-plugin-import eslint-plugin
 
 eslint-plugin-react-hooks
 
-yarn add  typescript@4.8.3
-
+yarn add typescript@4.8.3
 
 In the above small code example we have added a few additional defaults, we have said that React will always be defined even if we don't specifically import it, and I have added a personal custom rule that I like which allows you to prefix variables with an underscore \_ if you have declared them but not used them in the code.
 
@@ -249,9 +249,9 @@ Done in 1.47s.
 
 If you get any errors then ESLint is quite good at explaining clearly what they are. If you encounter a rule you don't like you can disable it in "rules" by simply setting it to 1 (warning) or 0 (ignore) like so:
 
-  "rules": {
-    "no-unused-vars": 0, // As example: Will never bug you about unused variables again
-  }
+"rules": {
+"no-unused-vars": 0, // As example: Will never bug you about unused variables again
+}
 
 Let's make a commit at this point with the message build: configure eslint
 
@@ -271,10 +271,10 @@ We'll create two files in the root:
 
 .prettierrc
 {
-  "trailingComma": "es5",
-  "tabWidth": 2,
-  "semi": true,
-  "singleQuote": true
+"trailingComma": "es5",
+"tabWidth": 2,
+"semi": true,
+"singleQuote": true
 }
 
 Those values are entirely at your discretion as to what is best for your team and project.
@@ -292,11 +292,11 @@ Now we add a new script to package.json so we can run Prettier:
 
 package.json
 
-  ...
-  "scripts: {
-    ...
-    "prettier": "prettier --write ."
-  }
+...
+"scripts: {
+...
+"prettier": "prettier --write ."
+}
 
 You can now run
 
@@ -326,11 +326,11 @@ Add the following script to your package.json file:
 
 package.json
 
-  ...
-  "scripts: {
-    ...
-    "prepare": "husky install"
-  }
+...
+"scripts: {
+...
+"prepare": "husky install"
+}
 
 This will ensure Husky gets installed automatically when other developers run the project.
 
@@ -369,54 +369,60 @@ commitlint.config.js
 // test: Adding missing tests or correcting existing tests
 
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
-  rules: {
-    'body-leading-blank': [1, 'always'],
-    'body-max-line-length': [2, 'always', 100],
-    'footer-leading-blank': [1, 'always'],
-    'footer-max-line-length': [2, 'always', 100],
-    'header-max-length': [2, 'always', 100],
-    'scope-case': [2, 'always', 'lower-case'],
-    'subject-case': [
-      2,
-      'never',
-      ['sentence-case', 'start-case', 'pascal-case', 'upper-case'],
-    ],
-    'subject-empty': [2, 'never'],
-    'subject-full-stop': [2, 'never', '.'],
-    'type-case': [2, 'always', 'lower-case'],
-    'type-empty': [2, 'never'],
-    'type-enum': [
-      2,
-      'always',
-      [
-        'build',
-        'chore',
-        'ci',
-        'docs',
-        'feat',
-        'fix',
-        'perf',
-        'refactor',
-        'revert',
-        'style',
-        'test',
-        'translation',
-        'security',
-        'changeset',
-      ],
-    ],
-  },
+extends: ['@commitlint/config-conventional'],
+rules: {
+'body-leading-blank': [1, 'always'],
+'body-max-line-length': [2, 'always', 100],
+'footer-leading-blank': [1, 'always'],
+'footer-max-line-length': [2, 'always', 100],
+'header-max-length': [2, 'always', 100],
+'scope-case': [2, 'always', 'lower-case'],
+'subject-case': [
+2,
+'never',
+['sentence-case', 'start-case', 'pascal-case', 'upper-case'],
+],
+'subject-empty': [2, 'never'],
+'subject-full-stop': [2, 'never', '.'],
+'type-case': [2, 'always', 'lower-case'],
+'type-empty': [2, 'never'],
+'type-enum': [
+2,
+'always',
+[
+'build',
+'chore',
+'ci',
+'docs',
+'feat',
+'fix',
+'perf',
+'refactor',
+'revert',
+'style',
+'test',
+'translation',
+'security',
+'changeset',
+],
+],
+},
 };
 
 Then enable commitlint with Husky by using:
 
 npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
+
 # Sometimes above command doesn't work in some command interpreters
+
 # You can try other commands below to write npx --no -- commitlint --edit $1
+
 # in the commit-msg file.
+
 npx husky add .husky/commit-msg \"npx --no -- commitlint --edit '$1'\"
+
 # or
+
 npx husky add .husky/commit-msg "npx --no -- commitlint --edit $1"
 
 Feel free to try some commits that don't follow the rules and see how they are not accepted, and you receive feedback that is designed to help you correct them.
@@ -440,12 +446,12 @@ Within settings.json we will add the following values:
 .vscode/settings.json
 
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
-  }
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+"editor.formatOnSave": true,
+"editor.codeActionsOnSave": {
+"source.fixAll": true,
+"source.organizeImports": true
+}
 }
 
 The above will tell VS Code to use your Prettier extension as the default formatter (you can override manually if you wish with another one) and to automatically format your files and organize your import statements every time you save.
