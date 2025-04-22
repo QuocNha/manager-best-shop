@@ -1,3 +1,4 @@
+import MUIProvider from "@/providers/MUIProvider";
 import TanstackProvider from "@/providers/TanstackProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -28,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TanstackProvider>{children}</TanstackProvider>
+        <TanstackProvider>
+          <MUIProvider>{children}</MUIProvider>
+        </TanstackProvider>
       </body>
     </html>
   );
