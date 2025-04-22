@@ -1,17 +1,30 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-  {
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    "airbnb",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".tsx", ".ts", ".js", ".json"],
+      },
+    },
+  },
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: "module",
+  },
+  plugins: ["react", "@typescript-eslint", "react-hooks"],
+  rules: {
     semi: 0,
     indent: 0,
     "react/jsx-filename-extension": 0,
@@ -54,6 +67,4 @@ const eslintConfig = [
     "import/no-cycle": 0,
     "prefer-arrow-callback": 0,
   },
-];
-
-export default eslintConfig;
+};
